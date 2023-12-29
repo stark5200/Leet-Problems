@@ -1,4 +1,5 @@
 function gcdStrings(str1: string, str2: string): String {
+  let matches: string[] = [];
   let result = "";
   let short = "";
   let long = "";
@@ -11,6 +12,12 @@ function gcdStrings(str1: string, str2: string): String {
     long = str1;
   }
   console.log("shorter string is: '" + short + "', " + "longer string is: '" + long + "'.");
+
+  for (let i = 0; i < mlen; i++) {
+    for (let j = 0; j < mlen; j++) {
+      result = "ij";
+    }
+  }
   return(result); 
 }
 
