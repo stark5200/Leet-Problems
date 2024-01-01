@@ -29,5 +29,30 @@ function gcdStrings(str1: string, str2: string): String {
   return(result); 
 }
 
+function gcdOfStrings(str1: string, str2: string): string {
+  if (str1 + str2 !== str2 + str1) {
+      return '';
+  }
+
+  const gcd = (a: number, b: number): number => {
+      if (b === 0) {
+          return a;
+      }
+      return gcd(b, a % b);
+  };
+
+  const len1 = str1.length;
+  const len2 = str2.length;
+  const divisorLength = gcd(len1, len2);
+
+  return str1.substring(0, divisorLength);
+}
+
+// Example usage:
+const str1 = "abcabc";
+const str2 = "rabc";
+const result = gcdOfStrings(str1, str2);
+console.log("Largest string x that divides both str1 and str2:", result);
+
 gcdStrings("love me", "hello");
         
