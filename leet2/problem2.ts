@@ -72,6 +72,7 @@ function gcdOfStrings2(str1: string, str2: string): string {
 
   const divisor = str1.substring(0, divisorLength);
   if (divisor.repeat(len1 / divisorLength) === str1 && divisor.repeat(len2 / divisorLength) === str2) {
+      console.log(divisor.repeat(len1 / divisorLength), divisor.repeat(len2 / divisorLength));
       return divisor;
   }
 
