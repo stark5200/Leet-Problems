@@ -1,3 +1,5 @@
+// to run code: ts-node problem3.ts, to compile new js version: tsc problem3.ts, to run js version: node problem3.ts
+
 function mergeAlternately(word1: string, word2: string): String {
 let merged = "";
 let tlen   = word1.length + word2.length;
