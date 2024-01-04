@@ -1,6 +1,6 @@
 // to run code: ts-node problem3.ts, to compile new js version: tsc problem3.ts, to run js version: node problem3.ts
 
-function kidCandies(candies: number[], extraCandies: number): boolean[] {
+function KidCandies(candies: number[], extraCandies: number): boolean[] {
   let max = Math.max(...candies);
   let nkids = candies.length;
   let table: boolean[] = [];
@@ -17,8 +17,8 @@ function kidCandies(candies: number[], extraCandies: number): boolean[] {
   return table;
 };
 
-let kidresult = kidCandies([2, 6, 4], 2);
-console.log(kidresult);
+
+console.log(KidCandies([2, 6, 4], 2));
 
 /* best solution:
 function kidsWithCandies(candies: number[], extraCandies: number): boolean[] {
