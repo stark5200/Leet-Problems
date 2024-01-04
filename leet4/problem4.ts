@@ -1,3 +1,5 @@
+// to run code: ts-node problem3.ts, to compile new js version: tsc problem3.ts, to run js version: node problem3.ts
+
 function canPlaceFlowers(flowerbed: number[], n: number): boolean {
     let space: number = n;
     let size = flowerbed.length;
