@@ -2,19 +2,13 @@
 
 function productExceptSelf(nums: number[]): number[] {
   
-  let result: number[] = [];
-  let len = nums.length;
-  for (let i = 0; i < len; i++) {
-    let sum = 1;
-     for (let j = 0; j < len; j++) {
-      j == i ? null : sum = sum * nums[j];
-     }
-     result.push(sum);
-  }
-  return result;
+  let mapresult: number[] = [];
+  let total = nums.reduce((a, b) => {return a * b;});
+  mapresult = nums.map(s => s == 0 ? nums.filter(n => n != 0).reduce((a, b) => {return a * b;}) : total/s);
+  return mapresult;
 };
 
-productExceptSelf([1, 2, 3, 4, 5, 6]);
+console.log(productExceptSelf([1, 0, 3, 4, 0, 6]));
 
 /* Easy Solution
 function productExceptSelf(nums: number[]): number[] {
