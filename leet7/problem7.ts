@@ -4,7 +4,9 @@ function productExceptSelf(nums: number[]): number[] {
   
   let mapresult: number[] = [];
   let total = nums.reduce((a, b) => {return a * b;});
-  mapresult = nums.map(s => s == 0 ? nums.filter(n => n != 0).reduce((a, b) => {return a * b;}) : total/s);
+  nums.filter(n => n != 0).length < nums.length - 1 ?
+   mapresult = nums.map(s => 0) :
+   mapresult = nums.map(s => s == 0 ? nums.filter(n => n != 0).reduce((a, b) => {return a * b;}) : total/s);
   return mapresult;
 };
 
