@@ -3,13 +3,19 @@ function compress(chars: string[]): number {
     let count = 0;
     let compressed: string[] = [];
     for (let char in chars) {
-        console.log(char);
-        if (char == init) {
+        if (chars[char] == init) {
             count++;
-        } else { (compressed.push(init), compressed.push(count.toString()) , init = char , count = 1) };
-        console.log(count.toString() + init + count);
+        } else {
+            (compressed.push(init), count > 1 ? compressed.push(count.toString()) : null , init = chars[char] , count = 1)
+        };
     }
-    console.log(compressed)
+    compressed.push(init);
+    if (count > 1) {
+        compressed.push(count.toString());
+    }
+    chars.unshift(...compressed);
+    chars = chars.join("");
+    console.log(chars);
     return compressed.length;
 };
 
