@@ -13,10 +13,8 @@ function compress(chars: string[]): number {
     if (count > 1) {
         compressed.push(count.toString());
     }
-    chars.unshift(...compressed);
-    chars = chars.join("");
-    console.log(chars);
-    return compressed.length;
+    chars.unshift(...compressed.join("").split(""));
+    return compressed.join("").split("").length;
 };
 
 let uncompressed = ["a","a","b","b","c","c","c"];
