@@ -1,21 +1,24 @@
 function maxArea(height: number[]): number {
-  let areaMatrix: number[][] =[]
   let max = 0;
-  for (let i = 0; i < height.length-1; i++) {
-    areaMatrix[i] = []
-    for (let j = i+1; j < height.length ; j++) {
-      areaMatrix[i].push(Math.abs(i-j) * Math.min(height[i], height[j]))
+  let l = 0;
+  let r = height.length-1;
+
+  while (l < r) {
+    let waterarea = (r-l)*Math.min(height[l], height[r]); 
+    if ( waterarea > max ) {
+      max = waterarea;
+    }
+    if (height[l] < height[r]) {
+      l++;
+    } else {
+      r--;
     }
   }
-  console.log(areaMatrix);
-  let maxes:number[] = []
-  for (let i = 0; i < height.length-1; i++) {
-    maxes.push(Math.max(...areaMatrix[i]))
-  }
-  return Math.max(...maxes)    
+  console.log(max);
+  return max;    
 };
 
-console.log(maxArea([3,4,1,5,6,2]));
+maxArea([3,4,1,5,6,2]);
 
 /* chatgpt solution
 
