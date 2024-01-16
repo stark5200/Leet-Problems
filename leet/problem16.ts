@@ -1,20 +1,26 @@
 function longestOnes(nums: number[], k: number): number {
   let maxOnes = 0;
-  for (let num = 0; num <= nums.length; num++) {
+  for (let num = 0; num < nums.length; num++) {
     let ones = 0;
     let counter = num;
+    console.log("initial counter for num " + num + " is: " + counter + " , max ones is: " + maxOnes)
     let extra = k;
-    while (extra > 0 && counter <= nums.length) {
+    while (counter < nums.length && extra >= 0) {
       if (nums[counter]==1) {
         ones++;
         counter++;
+        console.log("current counter is: " + counter + " , current ones is: " + ones )
       } else if (nums[counter]==0 && extra > 0) {
         ones++;
         counter++;
         extra--;
+        console.log("current counter is: " + counter + " , current ones is: " + ones + " , remaining extra: " + extra)
+      } else {
+        continue;
       }
     }
     maxOnes = Math.max(ones, maxOnes);
+    console.log("ones is: " + ones + ", max ones: " + maxOnes)
   }
   return maxOnes;  
 }
