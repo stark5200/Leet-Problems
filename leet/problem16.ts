@@ -35,3 +35,35 @@ function longestOnes(nums: number[], k: number): number {
 }
 
 console.log(longestOnes([1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0], 6));
+
+/*
+chat gpt solution
+
+This solution uses a sliding window approach to find the maximum number of consecutive 1's. It maintains a window between the left and right pointers, and when encountering a 0, it increments the zeroCount. The window contracts from the left until the number of 0's in the window is less than or equal to k. The maximum consecutive 1's are updated during this process.
+
+function longestOnes(nums: number[], k: number): number {
+    let left = 0;
+    let right = 0;
+    let maxCount = 0;
+    let zeroCount = 0;
+
+    while (right < nums.length) {
+        if (nums[right] === 0) {
+            zeroCount++;
+        }
+
+        while (zeroCount > k) {
+            if (nums[left] === 0) {
+                zeroCount--;
+            }
+            left++;
+        }
+
+        maxCount = Math.max(maxCount, right - left + 1);
+        right++;
+    }
+
+    return maxCount;
+}
+
+*/
