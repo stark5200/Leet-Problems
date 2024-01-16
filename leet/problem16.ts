@@ -1,23 +1,25 @@
 function longestOnes(nums: number[], k: number): number {
   let maxOnes = 0;
-  let currentOnes = maxOnes;
   for (let num = 0; num <= nums.length; num++) {
     let ones = 0;
-    for (let extra = k; k > 0; k--) {
-      if (nums[num]==1) {
+    let counter = num;
+    let extra = k;
+    while (extra > 0 && counter <= nums.length) {
+      if (nums[counter]==1) {
         ones++;
-      } else if (nums[num]==0 && extra > 0) {
+        counter++;
+      } else if (nums[counter]==0 && extra > 0) {
         ones++;
-      } 
+        counter++;
+        extra--;
+      }
     }
-    currentOnes = ones;
-    maxOnes = Math.max(currentOnes, maxOnes);
+    maxOnes = Math.max(ones, maxOnes);
   }
   return maxOnes;  
 }
 
-longestOnes([0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1], 10)
-console.log("Hiii");
+console.log(longestOnes([0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1], 3));
 /*
 function findMaxAverage(nums: number[], k: number): number {
   let sum = (n: number, ...arr: number[]) => [...arr.slice(n, n+k)].reduce((x, y) => x + y, 0); 
