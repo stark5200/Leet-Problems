@@ -23,3 +23,31 @@ function uniqueOccurrences(arr: number[]): boolean {
 };
 
 console.log(uniqueOccurrences([1,2,2,1,1,3]));
+
+/* discussion solution
+
+Approach⚡
+Initialize a HashMap frequency to store the elements and its occurrence.
+Iterate through the given array arr and store the frequency in the HashMap.
+Initialize a HashSet storage to store the unique frequency of the elements.
+Iterate through the frequency HashMap and store the frequency of elements to storage set.
+Check if the N number of elements in frequency HashMap has N unique occurrences in storage HashSet.
+frequency.size() == storage.size()
+Complexity⌛
+Time complexity: O(n), where the input array and the HashMap is Iterated only once. O(n) + O(n) = O(n)
+Space complexity: O(n), As we are using HashMap and HashSet to store the elements and its frequency.
+
+
+const frequency = new Map();
+
+    for(let num of arr) // Store element and its frequency
+        if(frequency.has(num)) frequency.set(num, frequency.get(num)+1);
+        else frequency.set(num,1);
+
+    // store the frequency 
+    const storage = new Set(Array.from(frequency.values()));
+
+    // True if we get n different frequency for n different numbers
+    return frequency.size == storage.size;
+
+*/
