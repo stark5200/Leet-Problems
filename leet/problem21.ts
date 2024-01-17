@@ -11,11 +11,15 @@ function uniqueOccurrences(arr: number[]): boolean {
   console.log(uniMap);
 
   let occur: number[] = [...uniMap.values()];
-  let distinct: number[] = [...occur].filter((num) => distinct.length==0 ? num : !distinct.includes(num));
-  if (occur == distinct) {
+  //let distinct: number[] = [...occur].filter((num) => distinct.length==0 ? num : !distinct.includes(num));
+  let distinctArray = occur.filter((value, index) => occur.indexOf(value) === index);
+  //console.log(occur);
+  //console.log(distinctArray);
+  if (occur.length == distinctArray.length) {
     return true;
   }
+  
   return false;
 };
 
-uniqueOccurrences([1,2,2,1,1,3]);
+console.log(uniqueOccurrences([1,2,2,1,1,3]));
