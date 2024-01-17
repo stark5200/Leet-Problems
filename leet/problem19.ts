@@ -1,11 +1,13 @@
-function pivotIndex(nums: number[]): number {
-  let lsum = (n: number, ...arr: number[]) => [...arr.slice(0, n)].reduce((x, y) => x + y, 0); 
-  let rsum = (n: number, ...arr: number[]) => [...arr.slice(n+1)].reduce((x, y) => x + y, 0); 
-  
+function pivotIndex(nums: number[]): number { 
+  let rsum = (...arr: number[]) => [...arr.slice(1)].reduce((x, y) => x + y, 0); 
+  let left = 0;
+  let right = rsum(...nums);
   for (let num in nums) {
-  if (rsum(Number(num), ...nums) == lsum(Number(num), ...nums)) {
-    return Number(num) 
-  }
+    if (left == right) {
+      return Number(num) 
+    }
+    left += nums[Number(num)];
+    right -= nums[Number(num)+1];
   }
   return -1;  
 };
