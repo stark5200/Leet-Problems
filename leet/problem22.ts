@@ -26,4 +26,5 @@ function closeStrings(word1: string, word2: string): boolean {
     diff1[j] != diff2[-(j+1)] ? same=0 : null;
   } 
   return true;
+  // this problem is a bit difficult
 };
