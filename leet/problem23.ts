@@ -32,4 +32,4 @@ function equalPairs(grid: number[][]): number {
   return count
 };
 
-console.log(equalPairs([[3,2,1],[1,7,6],[2,7,7]]));
+console.log(equalPairs([[3,2,1,5],[1,7,6,1],[2,7,7,8], [5,8,3,6]]));
