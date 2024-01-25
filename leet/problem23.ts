@@ -14,22 +14,14 @@ function equalPairs(grid: number[][]): number {
     columns.push(col);
   }
 
-  console.log("cols: ");
-  console.log(columns);
-  console.log("rows: ");
-  console.log(rows);
-
   for (let r in rows) {
     for (let c in columns) {
-      console.log(rows[r]);
-      console.log(columns[c]);
-      if (rows[r] == columns[c]) {
+      if (JSON.stringify(rows[r]) ===  JSON.stringify(columns[c])) {
         count++;
-        console.log(count)
       }
     }
   }
   return count
 };
 
-console.log(equalPairs([[3,2,1,5],[1,7,6,1],[2,7,7,8], [5,8,3,6]]));
+console.log(equalPairs([[3,2,2,5],[2,7,6,1],[2,7,7,8], [5,8,3,6]]));
