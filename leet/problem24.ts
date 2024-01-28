@@ -1,7 +1,12 @@
 function removeStars(s: string): string {
-  let sep = s.split("");
+  if (!s.includes("*")) {
+    return s;
+  }
+  let sep = s.split("*");
+  //sep.splice(sep.indexOf("*"), 1);
+  console.log("lets see: " + sep);
   let length = sep.length
-  //let indexToRemove: number[] = [];
+  
   for (let i = length-1; i >= 0; i--) {
     let check = true;
     if (sep[i]=="*") {
@@ -20,7 +25,7 @@ function removeStars(s: string): string {
   return result;  
 };
 
-console.log(removeStars("hel*l*o*"));
+console.log(removeStars("he*l*l*o*"));
 
 
 /*
