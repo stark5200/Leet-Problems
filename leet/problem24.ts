@@ -56,4 +56,23 @@ function removeStars(s: string): string {
   return result  
 };
 
+
+Wrong gpt solution
+
+function removeStars(s: string): string {
+    const stack: number[] = [];
+
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === '*') {
+            stack.push(i);
+        } else if (stack.length > 0) {
+            const prevStarIndex = stack.pop()!;
+            s = s.slice(0, prevStarIndex) + s.slice(i + 1);
+            i = prevStarIndex - 1; // Move the index back to the previous star
+        }
+    }
+
+    return s;
+}
+
 */ 
