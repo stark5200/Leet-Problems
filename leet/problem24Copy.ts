@@ -1,17 +1,29 @@
-function removeStars(s: string): string {
+function RemoveStars(s: string): string {
+  const stack: number[] = [];
 
   for (let i = 0; i < s.length; i++) {
       if (s[i] === '*') {
-        s = s.slice(0, i-1) + s.slice(i + 1, s.length);
-        i = i - 2;
+        console.log("starting s = : " + s);
+        stack.push(i);
+        console.log("i = : " + i);
+        console.log("s[i] = : " + s[i]);
+        console.log("stack = : " + stack);
+        const prevStarIndex = stack.pop()!;
+        console.log("prevStarIndex = : " + prevStarIndex);
+        s = s.slice(0, prevStarIndex-1) + s.slice(i + 1, s.length);
+        console.log(" new s = : " + s);
+        prevStarIndex >= 2 ? i = prevStarIndex - 2: i = 0; // Move the index back to the previous star
+        console.log("endloop i = : " + i);
       }
   }
 
   return s;
 }
 
-console.log(removeStars("he*l*l*o*"));
-/* more broken code
+console.log(RemoveStars("leet**cod*e*"));
+
+
+/*current code 
 
 function removeStars(s: string): string {
   if (!s.includes("*")) {
@@ -41,14 +53,11 @@ function removeStars(s: string): string {
 
 function countOccurrences(arr: string[], target: string): number {
   return arr.filter(item => item === target).length;
-}*/
+}
+*/
 
 
-
-/*
-The ! (non-null assertion operator) is used here to assert to the TypeScript compiler that the result won't be undefined. 
-
-old code 
+/* old code 
 
 function removeStars(s: string): string {
     if (!s.includes("*")) {
