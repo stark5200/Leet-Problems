@@ -23,6 +23,9 @@ console.log(removeStars("leet**cod*e"));
 console.log(removeStars("erase*****"));
 
 
+console.log(("erase*****"[3]).repeat(3));
+
+
 
 /*
 
