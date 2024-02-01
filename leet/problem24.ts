@@ -1,5 +1,51 @@
 function removeStars(s: string): string {
 
+  let letters = s.split("");
+
+  let stack: string[] = [];
+
+  if (!letters.includes("*")) return letters.join("");
+
+  for (let i = 0; i < letters.length; i++) {
+      if (letters[i] !== '*') {
+        stack.push(letters[i]);
+      } else {
+        stack.pop();
+      }
+  }
+
+  return stack.join("");
+}
+
+
+console.log(removeStars("he*l*l*o*"));
+console.log(removeStars("leet**cod*e"));
+console.log(removeStars("erase*****"));
+
+
+
+/*
+
+function removeStars(s: string): string {
+
+  let letters = s.split("");
+
+  if (!letters.includes("*")) return letters.join("");
+
+  for (let i = 0; i < letters.length; i++) {
+      if (letters[i] === '*') {
+        letters[i] = "0";
+        letters[i-1] = "0";
+        letters = letters.filter((l) => l !== "0");
+        i = i - 2;
+      }
+  }
+
+  return letters.join("");
+}
+
+function removeStars(s: string): string {
+
   for (let i = 0; i < s.length; i++) {
       if (s[i] === '*') {
         s = s.slice(0, i-1) + s.slice(i + 1, s.length);
@@ -9,8 +55,14 @@ function removeStars(s: string): string {
 
   return s;
 }
+*/
 
-console.log(removeStars("he*l*l*o*"));
+
+
+
+
+
+
 /* more broken code
 
 function removeStars(s: string): string {
