@@ -6,11 +6,13 @@ function decodeString(s: string): string {
     const parsedInt: number | null = parseInt(s[i], 10);
     if (!isNaN(parsedInt)) {
       newNumber.push(s[i])
-    }
+    } 
     if (s[i] == "[") {
       let multiply: number = parseInt(newNumber.join(""), 10);
       newNumber = []; 
       return decodeString( findClosingBracket(s.slice(i+1, s.length)).repeat(multiply) );
+    } else {
+      return decodeString( findClosingBracket(s.slice(i+1, s.length)) )
     }
   }
   return "decode";  
