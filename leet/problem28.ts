@@ -2,6 +2,7 @@ function predictPartyVictory(senate: string): string {
     let senateList = [...senate];
     for (let i = 0; i <= 10; i+) {
         senateList.push("senate{i}");
+        senateList.push("hopefully i make it");
      }
     return "dota2"
 };
