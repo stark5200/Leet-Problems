@@ -1,4 +1,4 @@
-function predictPartyVictory() {
+function predictPartyVictory(party: string[]) {
     return "senate";
 };
 
